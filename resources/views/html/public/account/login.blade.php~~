@@ -1,0 +1,4 @@
+<x-layout>
+    @includeIf('html.public.common.sub-template.banner-template')
+    @includeIf('html.public.account.forms.signIn-user-form')
+</x-layout>
