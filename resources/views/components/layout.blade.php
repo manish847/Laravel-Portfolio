@@ -24,7 +24,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/public/css/style.css') }}" />
 </head>
 
 <body>
@@ -32,11 +32,11 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
     <!-- Navbar -->
-    @includeIf('html.public.common.header.header-nav');
+    @includeIf('html.public.common.header.header-nav')
 
     {{ $slot }}
 
-    @includeIf('html.public.common.sub-contact');
+    @includeIf('html.public.common.sub-contact')
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
@@ -70,7 +70,7 @@
 
     <!-- AOS Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/public/js/script.js') }}"></script>
 </body>
 
 </html>

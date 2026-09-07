@@ -1,3 +1,6 @@
+@php
+    $accountController = new \App\Http\Controllers\AccountController();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -19,7 +22,7 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/public/css/style.css') }}" />
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -30,7 +33,7 @@
 <body>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
-    @includeIf('html.public.common.header.header-nav');
+    @includeIf('html.public.common.header.header-nav')
     <div class="font-sans text-gray-900 antialiased">
         {{ $slot }}
     </div>
@@ -68,7 +71,7 @@
 
     <!-- AOS Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/public/js/script.js') }}"></script>
     @livewireScripts
 </body>
 

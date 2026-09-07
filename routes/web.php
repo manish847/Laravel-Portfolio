@@ -51,6 +51,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('html.admin.dashboard');
     })->name('dashboard');
 });
