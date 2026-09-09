@@ -6,6 +6,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\UserController;
 
+// Basic routes for the public pages
 Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/about', [PublicController::class, 'about'])->name('about');
 Route::get('/experience', [PublicController::class, 'Experience'])->name('experience');
@@ -15,6 +16,7 @@ Route::get('/projects', [PublicController::class, 'Projects'])->name('projects')
 Route::get('/showcase', [PublicController::class, 'Showcase'])->name('showcase');
 Route::redirect('/home', '/');
 
+// Basic routes for the account management
 Route::get('/login', [AccountController::class, 'login'])->name('auth.login');
 Route::get('/redirect', [AccountController::class, 'account'])->name('account');
 Route::post('/validate', [AccountController::class, 'validateAccount'])
@@ -24,14 +26,23 @@ Route::get('/my-dashboard', [AccountController::class, 'userAccount'])
     ->middleware('auth')
     ->name('my-dashboard');
 
+// Basic routes for the admin dashboard User management
+Route::get('admin/view-users', [AdminController::class, 'viewUsers'])->middleware('auth')->name('view-users');
+Route::get('admin/add-user', [AdminController::class, 'addUser'])->middleware('auth')->name('add-user');
+Route::get('admin/user-profile', [AdminController::class, 'userProfile'])->middleware('auth')->name('user-profile');
 
-Route::post('adduser', [UserController::class, 'addUser'])->name('add.user');
-Route::post('loginuser', [UserController::class, 'loginUser'])->name('login.user');
+// Basic routes for the admin dashboard Post management
+Route::get('admin/view-posts', [AdminController::class, 'viewPosts'])->middleware('auth')->name('view-posts');
+Route::get('admin/add-post', [AdminController::class, 'addPost'])->middleware('auth')->name('add-post');
+Route::get('admin/post-categories', [AdminController::class, 'postCategories'])->middleware('auth')->name('post-categories');
 
-// Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+// Basic routes for the admin dashboard Products management
+Route::get('admin/view-products', [AdminController::class, 'viewProducts'])->middleware('auth')->name('view-products');
+Route::get('admin/add-product', [AdminController::class, 'addProduct'])->middleware('auth')->name('add-product');
+Route::get('admin/product-categories', [AdminController::class, 'productCategories'])->middleware('auth')->name('product-categories');
 
 
-Route::get('/product/{id}', [PublicController::class, 'productDetails'])->name('product.details');
+Route::get('admin/product/{id}', [PublicController::class, 'productDetails'])->name('product.details');
 
 // redirect home to welcome page
 // Route::view('/home', 'home');
